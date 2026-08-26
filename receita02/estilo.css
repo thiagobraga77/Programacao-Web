@@ -1,0 +1,29 @@
+p.verso {
+    color: blue;
+}
+p.mote{
+    color: red;
+}
+.autor{
+    text-decoration: none;
+    color: rgb(58, 35, 35);
+    display: flex;
+    
+}
+.autor:hover{
+    color: rgb(134, 25, 25);
+}
+.autor-visited{
+    color: rgb(212, 38, 7);
+}
+.poeta{
+    border-radius: 50px;
+}
+th{
+    border: 1px solid #ddd;
+    background-color: #04AA6D;
+    color: white;
+}
+table{
+    font-family: Arial, Helvetica, sans-serif;
+}

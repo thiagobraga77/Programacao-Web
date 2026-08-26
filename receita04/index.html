@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+   <meta charset="UTF-8">
+   <link rel="stylesheet" href="estilo.css">
+
+</head>
+
+
+
+<body>
+   <div>
+      <button id="botaoCarregar">Carregando cervejas...</button>
+   </div>
+
+   <div id="meu amor"></div>
+
+
+
+
+
+<script>
+
+   let cervejas = ["Guiness", "Desperados", "Becks"]
+
+   let cervejasOrdenadas = [...cervejas].sort() // ... -> spread operator: copia os elementos do array antes de usar o sort
+
+   let cervejasEmbaralhadas = [...cervejas].sort(() => Math.random() - 0.5);
+
+   function transformar(item) {
+      return `<tr><td>${item}</td></tr>`
+   }
+
+   function carregarDiv() {
+
+      let div = document.getElementById("meu amor")
+
+      //let cervejasHtml = [`<h1>${cervejas[0]}</h1>`, `<h1>${cervejas[1]}</h1>`, `<h1>${cervejas[2]}</h1>`]
+
+      let cervejasHtml = cervejas.map(transformar) // Map, pegue cada elemento desse array e usa essa função para transformar cada um
+
+      let cervejasHtml1 = cervejasOrdenadas.map(transformar)
+      
+      let cervejasHtml2 = cervejasEmbaralhadas.map(transformar)
+
+      div.innerHTML = `<h2>Original</h2> <table>${cervejasHtml.join("\n")}</table>
+      
+      <h2>Ordenada</h2> <table>${cervejasHtml1.join("\n")}</table>
+
+      <h2>Embaralhadas</h2> <table>${cervejasHtml2.join("\n")}</table>
+
+      `
+   }
+
+
+
+   let botao = document.getElementById("botaoCarregar")
+
+   botao.addEventListener("click", carregarDiv)
+
+</script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+   <meta charset="UTF-8">
+
+</head>
+
+
+
+<body>
+
+   <div><button id="botaoCarregar">Mostrar/Ocultar cerveja</button></div>
+   <div id="meuAmor"></div>
+</body>
+
+
+
+<script>
+
+   function carregarDiv() {
+
+      let div = document.getElementById("meuAmor");
+
+      // fad out
+      div.style.opacity = 0;
+
+      // esperando a animação terminar
+      setTimeout(() => {
+
+         if (div.innerHTML == "") {
+            div.innerHTML = `<h1>Guinness</h1>`
+         } else {
+            div.innerHTML = "";
+         }
+
+         // fad in
+         div.style.opacity = 1;
+      }, 200);
+   }
+
+   let botao = document.getElementById("botaoCarregar")
+   botao.addEventListener("click", carregarDiv)
+
+
+</script>
+
+</html>
+
