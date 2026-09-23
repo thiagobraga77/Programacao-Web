@@ -1,0 +1,17 @@
+.tabela {
+    border: 5px 5px;
+    border-radius: 10px;
+}
+.chave {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+th {
+    padding: 5px;
+    margin: 5px;
+    background-color: rgb(200, 202, 207);
+}
+
+td {
+    background-color: rgb(132, 168, 132);
+}
