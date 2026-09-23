@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+   <meta charset="UTF-8">
+   <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+
+<body>
+
+   <div><button id="botaoCarregar">Carregando cervejas...</button></div>
+   <br>
+   <div id="cervejasDiv"></div>
+
+</body>
+
+
+
+<script>
+
+
+   let cervejas = [
+
+      {
+
+         name: "Guiness",
+         alcohol: "10%",
+         ibu: 25,
+         style: "Red Ale"
+
+      },
+
+      {
+
+         name: "Desperados",
+         alcohol: "7%",
+         ibu: 38,
+         style: "Lager"
+
+
+      },
+
+      {
+
+         name: "Becks",
+         alcohol: "4%",
+         ibu: 45,
+         style: "APA"
+      }
+
+   ]
+
+
+
+   //cs é um array de cervejas
+
+   const carregarDiv = (cs, id = "cervejasDiv", nome = "Nome", alcool = "Álcool", estilo = "Estilo", amargor = "Amargor",
+   propNome = "name", propAlcool = "alcohol", propEstilo = "style", propAmargor = "ibu"
+   ) => {
+
+      const div = document.getElementById(id)
+
+      // const itensHtml = cs.map(item => `<div>${item.name} -- ${item.alcohol}</div>`)
+      // const itensHtml = cs.map( ({name, alcohol}) => `<div>${name} -- ${alcohol}</div>` )
+      const itensHtml = `
+         <table border="1" class="tabela">
+            <tr>
+               <th class="chave">${nome}</th>
+               <th class="chave">${alcool}</th>
+               <th class="chave">${estilo}</th>
+               <th class="chave">${amargor}</th>
+            </tr>
+
+            ${cs.map(item => `
+               <tr>
+                  <td>${item[propNome]}</td>
+                  <td>${item[propAlcool]}</td>
+                  <td>${item[propEstilo]}</td>
+                  <td>${item[propAmargor]}</td>
+
+               </tr>
+            `).join('')}
+         </table>
+         `;
+
+      div.innerHTML = itensHtml;
+
+   
+      }
+
+   let botao = document.getElementById("botaoCarregar")
+
+   botao.addEventListener("click", () => carregarDiv(cervejas))
+
+
+</script>
+
+</html>

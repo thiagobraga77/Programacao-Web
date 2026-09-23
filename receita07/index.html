@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+
+<body>
+
+    <div><button id="botaoCarregar">Carregando cervejas...</button></div>
+
+    <div id="cervejasDiv"></div>
+
+</body>
+
+
+
+<script>
+
+
+    let cervejas = []
+
+
+
+
+    //cs é um array de cervejas
+
+    const carregarDiv = (cs, propTitulo = "Título", propPreco = "Preço", propCategoria = "Categoria", propDescricao = "Descrição") => {
+
+        const div = document.getElementById("cervejasDiv")
+
+
+        const itensHtml = cs.map(({ title, price, category, description }) => 
+
+        `<div>
+            
+           ${propTitulo}: ${title} <br> ${propPreco}: ${price} <br> ${propCategoria}: ${category} <br> ${propDescricao}: ${description} <h1> </div>`)
+
+        div.innerHTML = `
+        
+        <h1 class="meio">Produtos</h1> 
+        
+        ${itensHtml.join("\n")}`
+
+    }
+
+    async function carregarCervejas(){
+        try{
+        let res = await fetch("https://dummyjson.com/products?limit=3");
+        cervejas = await res.json()
+        carregarDiv(cervejas.products)
+        } catch(err){
+            document.getElementById("cervejasDiv").innerHTML = "Travou..."
+        }
+    }
+
+
+    let botao = document.getElementById("botaoCarregar")
+
+    botao.addEventListener("click", () => carregarCervejas())
+
+
+</script>
+
+</html>
