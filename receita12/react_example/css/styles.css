@@ -1,0 +1,18 @@
+#tabela {
+    margin: 10px;
+    padding: 5px;
+    border: solid;
+    gap: 5px;
+}
+
+#destaque {
+    text-align: center;
+    color: rgb(14, 30, 117);
+    background-color: rgb(37, 211, 144);
+}
+
+#itens {
+    text-align: center;
+    color: rgb(219, 20, 20);
+    background-color: rgb(58, 182, 161);
+}

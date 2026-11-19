@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>ReactZero</title>
+
+</head>
+
+<body>
+
+    <div id="app">
+    </div>
+    <button id="meuBotao">Clique aqui para exibir a tabela</button>
+
+    <script src="libs/react.js"></script>
+
+    <script src="libs/react-dom.js"></script>
+    <script src="libs/babel.js"></script>
+    <script src="js/scripts.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+
+
+
+
+    <script type="text/babel">
+        // render -> 2 parâmetros(1° parâmetro -> o que devemos renderizar algum elemento gráfico, 
+        // 2° parâmetro -> o segundo é a referência para onde devemos renderizar esse elemento gráfico)
+        // Reate.createElement(tag html, propriedades(id, class, null), children)
+        const botao = document.getElementById("meuBotao")
+        const bebidas = [
+            {
+                "nome": "Fanta",
+                "marca": "Uva"
+            },
+            {
+                "nome": "Guaraná",
+                "marca": "Antártida"
+            },
+            {
+                "nome": "Coca",
+                "marca": "Coca Cola"
+            }
+        ]
+
+        function TabelaBebidas() {
+            return <table id="tabela" border="1">
+                <thead>
+                    <tr id="destaque">
+                        <td>Nome</td>
+                        <td>Marca</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {bebidas.map(bebida => (
+                        <tr id="itens">
+                            <td>{bebida.nome}</td>
+                            <td>{bebida.marca}</td>
+                        </tr>
+                    ))}
+
+                </tbody>
+            </table>
+        }
+        const Cabecalho = () => <h1>Minha Tabela de Bebidas</h1>
+
+        function App() {
+            return (
+                <div>
+                    <Cabecalho />
+                    <TabelaBebidas />
+                </div>
+            )
+        }
+        addEventListener('click', () => {
+            ReactDOM.render(App(),
+                document.getElementById("app"));
+
+        })
+        
+
+
+    </script>
+
+</body>
+
+</html>

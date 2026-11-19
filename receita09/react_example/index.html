@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>ReactZero</title>
+
+</head>
+
+<body>
+
+    <div id="app">
+
+
+
+    </div>
+
+    <script src="libs/react.js"></script>
+
+    <script src="libs/react-dom.js"></script>
+
+
+
+    <script>
+        // render -> 2 parâmetros(1° parâmetro -> onde devemos renderizar algum elemento gráfico, 
+        // 2° parâmetro -> o segundo é a referência para onde devemos renderizar esse elemento gráfico)
+        ReactDOM.render(
+            React.createElement('table', {border: '1', style: { width: '100%'}},
+                React.createElement('thead', null,
+                    React.createElement('tr', null,
+                        React.createElement('th', null, 'ID'),
+                        React.createElement('th', null, 'Nome')
+                    )
+                ),
+                React.createElement('tbody', null,
+                    React.createElement('tr', null,
+                        React.createElement('td', null, '1'),
+                        React.createElement('td', null, 'Thiago'),
+                    ),
+                )
+
+            ),
+            document.getElementById('app')
+        );
+
+
+    </script>
+
+</body>
+
+</html>
